@@ -1,7 +1,7 @@
     let arraySizeRange = document.querySelector('#size_input');
     let arraySizeText = document.querySelector('#size_text');
 
-    let isPaused = false;
+    // let isPaused = false;
 
     // swap function util for sorting algorithms takes input of 2 DOM elements with .style.height feature
     function swap(el1, el2) {    
@@ -173,15 +173,15 @@ arraySizeText.addEventListener('input', function() {
         bar.innerHTML = '';
     }
 
-    const pauseButton = document.querySelector(".pause");
-pauseButton.addEventListener("click", function() {
-    isPaused = !isPaused;
-    if (isPaused) {
-        pauseButton.textContent = "Resume";
-    } else {
-        pauseButton.textContent = "Pause";
-    }
-});
+//     const pauseButton = document.querySelector(".pause");
+// pauseButton.addEventListener("click", function() {
+//     isPaused = !isPaused;
+//     if (isPaused) {
+//         pauseButton.textContent = "Resume";
+//     } else {
+//         pauseButton.textContent = "Pause";
+//     }
+// });
 
     const newArrayButton = document.querySelector(".new");
     newArrayButton.addEventListener("click", function() {
