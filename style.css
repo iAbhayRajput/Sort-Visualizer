@@ -6,8 +6,28 @@
     color: #e43f5a;
 }
 
+/* .value {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+} */
+
+
+.bar-value {
+    color: white;
+    font-weight: bold;
+    position: relative;
+    bottom: -100%; /* Move the value above the bar */
+    text-align: center; /* Center the value horizontally */
+    /* font-size: smaller; */
+    font-size: 0.65rem;
+}
+
 body {
     background-color: #162447;
+    /* overflow: hidden; */
 }
 
 .flex-container {
@@ -44,13 +64,13 @@ body {
 
 #sorting {
     margin-bottom: 50px;
-    transform: rotate(180deg) scaleX(-1); 
+    transform: rotate(360deg) scaleX(1); 
 }
 
 .range-input {
     box-sizing: border-box;
     top: 50%;
-    left: 50%;  
+    left: 50%;
     transform: translate(-50%, -50%);
     align-items: center;
     border-radius: 10px;
@@ -58,15 +78,30 @@ body {
     display: flex;
     vertical-align: middle;
     height: 50px;
+    justify-content: space-between; /* Add space between slider and input */
+    padding: 0 10px; /* Add some padding to the container */
 }
+
+.range-input input[type=number] {
+    width: 60px;
+    height: 25px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 10px;
+    color: white;
+}
+
 .range-input input {
     -webkit-appearance: none;
     width: 200px;
     height: 2px;
     background-color: #e43f5a;
-
-    position: absolute;
+    position: relative;
     top: 50%;
+    transform: translateY(-50%); /* Center the slider vertically */
 }
 .range-input input::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -79,6 +114,10 @@ body {
 }
 .range-input input::-webkit-slider-thumb:hover {
     background-color: #1f4068;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+    background-color: #8e2a1f;
 }
 
 .range-input .label{
