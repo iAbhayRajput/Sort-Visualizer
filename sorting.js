@@ -1,5 +1,8 @@
     let arraySizeRange = document.querySelector('#size_input');
     let arraySizeText = document.querySelector('#size_text');
+
+    let isPaused = false;
+
     // swap function util for sorting algorithms takes input of 2 DOM elements with .style.height feature
     function swap(el1, el2) {    
          // Swap the integer values
@@ -150,7 +153,7 @@ arraySizeText.addEventListener('input', function() {
         // Create a new div to hold the integer value
         const barValue = document.createElement("div");
         barValue.classList.add('bar-value');
-        barValue.style.height = `${(barArray[i] * 2)+ 5}px`;
+        barValue.style.height = `15px`;
         // barValue.style.width = `10px`;
         // barValue.style.fontSize= small;
         barValue.textContent = barArray[i];
@@ -169,6 +172,16 @@ arraySizeText.addEventListener('input', function() {
         const bar = document.querySelector("#sorting");
         bar.innerHTML = '';
     }
+
+    const pauseButton = document.querySelector(".pause");
+pauseButton.addEventListener("click", function() {
+    isPaused = !isPaused;
+    if (isPaused) {
+        pauseButton.textContent = "Resume";
+    } else {
+        pauseButton.textContent = "Pause";
+    }
+});
 
     const newArrayButton = document.querySelector(".new");
     newArrayButton.addEventListener("click", function() {
