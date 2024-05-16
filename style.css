@@ -23,6 +23,9 @@
     text-align: center; /* Center the value horizontally */
     /* font-size: smaller; */
     font-size: 0.65rem;
+    /* transform: scaleX(-1); */
+    /* transform: rotate(180); */
+    transform: scale(1, -1);
 }
 
 body {
@@ -62,9 +65,20 @@ body {
     margin: auto;
 }
 
+.btn-outline-warning {
+    color: #f7bb0a;
+    border-color: #ffeeba;
+}
+
+.btn-outline-warning:hover {
+    color: #fff;
+    background-color: #fdbf06;
+    border-color: #856404;
+}
+
 #sorting {
     margin-bottom: 50px;
-    transform: rotate(360deg) scaleX(1); 
+    transform: rotate(180deg) scaleX(-1); 
 }
 
 .range-input {
