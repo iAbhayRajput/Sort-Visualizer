@@ -1,3 +1,5 @@
+    let arraySizeRange = document.querySelector('#size_input');
+    let arraySizeText = document.querySelector('#size_text');
     // swap function util for sorting algorithms takes input of 2 DOM elements with .style.height feature
     function swap(el1, el2) {    
          // Swap the integer values
@@ -73,18 +75,19 @@
     }
 
     function validateSizeInput(input) {
-        if (input.value > 80) {
-            input.value = 80; // Set the value to 80 if it exceeds the maximum
+        if (input.value > 100) {
+            input.value = 100;
         } else if (input.value < 1) {
-            input.value = 1; // Set the value to 1 if it's less than the minimum
+            input.value = 1;
+        } else if (input.value === barArray.length) {
+            // If the input value is the same as the current array size, do nothing
+            return;
         }
-        arraySizeRange.value = input.value; // Sync the range slider with the input value
-        createNewArray(parseInt(input.value)); // Update the array with the new size
+        arraySizeRange.value = input.value;
+        createNewArray(parseInt(input.value));
     }
 
         // Selecting size slider and text input from DOM
-        let arraySizeRange = document.querySelector('#size_input');
-        let arraySizeText = document.querySelector('#size_text');
 
         // Event listener for range input
         arraySizeRange.addEventListener('input', function() {
@@ -167,17 +170,18 @@ arraySizeText.addEventListener('input', function() {
         bar.innerHTML = '';
     }
 
-    // Selecting newarray button from DOM and adding eventlistener
     const newArrayButton = document.querySelector(".new");
-    newArrayButton.addEventListener("click", function(){
-        hasPressedStop = false;
-        enableSpeedSlider();
-        console.log("From newArray " + arraySize.value);
-        console.log("From newArray " + delay);
-        enableSortingBtn();
-        enableSizeSlider();
-        createNewArray(arraySize.value);
-    });
+    newArrayButton.addEventListener("click", function() {
+    hasPressedStop = false;
+    enableSpeedSlider();
+    enableSortingBtn();
+    enableSizeSlider();
+
+    // Reset the input text field value to the range slider value
+    arraySizeText.value = arraySizeRange.value;
+
+    createNewArray(parseInt(arraySizeRange.value));
+});
 
     const stopSortingButton = document.querySelector(".stop");
     stopSortingButton.addEventListener("click", function(){
